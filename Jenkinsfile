@@ -9,7 +9,7 @@ pipeline {
         APP_NAME = "reddit-clone-pipeline"
         RELEASE = "1.0.0"
         DOCKER_USER = "iamrsk"
-        DOCKER_PASS = 'dockerhub'
+        DOCKER_PASS = 'rahulkhati37'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 	JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
@@ -50,7 +50,7 @@ pipeline {
                 sh "trivy fs . > trivyfs.txt"
              }
          }
-	 stage("Build & Push Docker Image") {
+	 /*stage("Build & Push Docker Image") {
              steps {
                  script {
                      docker.withRegistry('',DOCKER_PASS) {
@@ -95,7 +95,7 @@ pipeline {
                    "URL: ${env.BUILD_URL}<br/>",
                to: 'ashfaque.s510@gmail.com',                              
                attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
-        }
+        }*/
      }
     
 }
